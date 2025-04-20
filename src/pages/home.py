@@ -1,10 +1,7 @@
 """home"""
 from dash import html, dcc, callback, Input, Output
 import dash_bootstrap_components as dbc
-from dash_bootstrap_templates import ThemeSwitchAIO
-
 from utils.simpson_logic import create_final_figure
-
 
 mean_input = dcc.Input(
     id="mean",
@@ -77,7 +74,7 @@ layout = html.Div([
 
 @callback(
     Output('result', 'children'),
-    Input(ThemeSwitchAIO.ids.switch("theme"), "value"),
+    Input('switch-theme', "value"),
     Input('limit_inf', 'value'),
     Input('limit_sup', 'value'),
     Input('mean', 'value'),
@@ -96,9 +93,9 @@ def update_graph(toggle, limit_inf, limit_sup, mean, sigma):
 
     final_figure = create_final_figure(
         sigma, mean, limit_inf, limit_sup, toggle)
-
+    
     return [
-        html.Div(dcc.Graph(id="theme-switch-graph", figure=final_figure, mathjax=True))]
+        html.Div(dcc.Graph(figure=final_figure, mathjax=True))]
 
 def go_home():
     """home layout"""

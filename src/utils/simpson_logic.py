@@ -2,6 +2,7 @@
 import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
+import plotly.io as pio
 
 SEGMENTS = 200000
 SEGMENTS_GRAPHS = 1000
@@ -51,7 +52,8 @@ def create_final_figure(sigma, mean, limit_inf, limit_sup, toggle):
     array_fx = function_evaluation(array_x, sigma, mean)
     result = simpson_multiple(array_fx, limit_inf, limit_sup)
 
-    template = "cosmo" if toggle else "darkly"
+    #template = "cosmo" if toggle else "darkly"
+    template = pio.templates["plotly_white"] if toggle else pio.templates["plotly_dark"]
 
     fig_function = create_fig_function(sigma, mean)
     fig_area = create_fig_area(limit_inf, limit_sup, sigma, mean)

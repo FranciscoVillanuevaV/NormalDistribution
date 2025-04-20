@@ -4,6 +4,7 @@ import dash
 import dash_bootstrap_components as dbc
 from flask import send_from_directory
 from dash import Input, Output, dcc, html
+from navbar import get_navbar
 from pages.simpson import go_simpson
 from pages.about import go_about
 from pages.home import go_home
@@ -34,7 +35,6 @@ content=dbc.Card(
 )
 
 
-from navbar import get_navbar
 app.layout=dbc.Container(
     [dcc.Location(id="url"), get_navbar(), content], fluid=True,
     className='container-lg')

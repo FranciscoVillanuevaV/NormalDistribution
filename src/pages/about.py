@@ -24,7 +24,7 @@ layout = html.Div([
     html.P([
         html.A(
             html.I(' El repositorio', className="fa-brands fa-github"),
-            href='https://github.com/fvillarmur/mydash', target="_blank"),
+            href='https://github.com/FranciscoVillanuevaV/NormalDistribution', target="_blank"),
         ' con el código'])
 ])
 
